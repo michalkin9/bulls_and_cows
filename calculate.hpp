@@ -1,8 +1,11 @@
 #pragma once
 
-#include<String>
+#include <iostream>
+#include <string>
+using std::string;
 
-namespace using bullpgia;
+namespace bullpgia{
+string calculateBullAndPgia(string chooser,string guesser);
+}
 
 
-String calculateBullAndPgia(const String chooser, const String guesser) const;

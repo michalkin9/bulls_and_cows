@@ -3,13 +3,17 @@
 #include<iostream>
 
 using std::string;
-using namespace bullpgia;
+typedef unsigned int uint;
+namespace bullpgia {
+    class Guesser{
+        protected:
+            string replay;
+            uint length;
+        public:
+            virtual string guess() = 0;
+           virtual void startNewGame(uint length){}
+            virtual void learn(string reply){}
 
-Class Guesser{
-    public:
-        virtual string guess(unsigned int length) = 0;
-        virtual void startNewGame(const unsigned int length);
-        void virtual learn(const string reply);
-
+    };
 }
 

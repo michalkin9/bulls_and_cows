@@ -2,11 +2,13 @@
 #include<string>
 
 using std::string;
-using namespace bullpgia;
+//using namespace bullpgia;
 
-Class Chooser{
+namespace bullpgia{
+class Chooser{
     public:
-        virtual string choose(uint length) = 0;
+    virtual string choose(uint length) = 0;
     
+};
 }
 

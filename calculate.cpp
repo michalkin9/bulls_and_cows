@@ -1,9 +1,11 @@
+#include "calculate.hpp"
+#include <iostream>
 #include <string>
-#include<Calculate.h>
-using namespace bullpgia;
+
+
 using std::string;
 
-String calculateBullAndPgia(const string chooser, const String guesser) const{
-    string ans =""
+string bullpgia::calculateBullAndPgia(string chooser,string guesser) {
+    string ans;
     return ans;
 }

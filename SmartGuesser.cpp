@@ -2,9 +2,20 @@
 #include <stdlib.h>
 
 using std::string;
-using namespace std;
+using namespace bullpgia;
 
-std::string SmartGuesser::guess(uint length) {
-	string r="";
-	return r;
-}
+string SmartGuesser::guess(){
+			string str;
+			return str;
+
+		}
+void SmartGuesser::learn (string st) {}
+void SmartGuesser::startNewGame(uint length) {}
+
+
+
+
+
+
+
+
