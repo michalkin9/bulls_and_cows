@@ -32,6 +32,13 @@ int main() {
 		testcase.setname("Calculate bull and pgia")
 		.CHECK_OUTPUT(calculateBullAndPgia("1234","1234"), "4,0")      // 4 bull, 0 pgia
 		.CHECK_OUTPUT(calculateBullAndPgia("1234","4321"), "0,4")      // 0 bull, 4 pgia
+		/////////////////////////////// - Our Tests - ///////////////////////////////
+		.CHECK_OUTPUT(calculateBullAndPgia("1234","1324"), "2,2")      // 2 bull, 2 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("0000","1111"), "0,0")	   // 0 bull, 0 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("7878","7777"), "2,0")	   // 2 bull, 0 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("6781","6789"), "3,0")	   // 3 bull, 0 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("7543","7845"), "2,1")	   // 2 bull, 1 pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("4567","4756"), "1,3")	   // 1 bull, 3 pgia
 		;
 
 		testcase.setname("Play with dummy choosers and guessers")
@@ -47,6 +54,19 @@ int main() {
 		for (uint i=0; i<100; ++i) {
 			testcase.CHECK_EQUAL(play(randy, smarty, 4, 100)<=10, true);  // smarty should always win in at most 10 turns!
 		}
+		for (uint i=0; i<100; ++i) { 
+			testcase.CHECK_EQUAL(play(c1234, smarty, 4, 100)<=10, true);  // Dummy chooser vs. smart guesser
+		}
+		for (uint i=0; i<100; ++i) { 
+			testcase.CHECK_EQUAL(play(c12345, smarty, 5, 100)>=10, true); // Dummy chooser vs. smart guesser
+		}
+		for (uint i=0; i<100; ++i) { 
+			testcase.CHECK_EQUAL(play(c12345, smarty, 3, 100), 0);  // chooser loses technically by choosing an illegal number (too long).
+		}
+		
+		
+		
+		
 
     grade = testcase.grade();
 	} else {
