@@ -31,8 +31,3 @@ string bullpgia::calculateBullAndPgia(string chooser, string guesser) {
     ans = to_string(bull) +","+ to_string(pgia);
     return ans;
 }
-
-int main(){
-    
-    cout << bullpgia::calculateBullAndPgia("1058","5000") << endl;
-}
