@@ -17,17 +17,18 @@ string bullpgia::calculateBullAndPgia(string chooser, string guesser) {
         if(chooser.at(i) == guesser.at(i)){
             bull++;
             arr[i] = -1;
-            cout << guesser.at(i) <<endl;
+           // cout << guesser.at(i) <<endl;
         }
         else{
             size_t found = chooser.find(guesser[i]); 
             if(found<size && arr[found] != -1){
                 pgia++;
                 arr[found] = -1;
-                cout << guesser[i] <<endl;
+                //cout << guesser[i] <<endl;
             }
     }
     }
     ans = to_string(bull) +","+ to_string(pgia);
     return ans;
 }
+

@@ -37,6 +37,29 @@ void SmartGuesser::buildset(int length){
 	}
 }
 
+void SmartGuesser::remove_from_set(string status, string choice){
+	
+	for (set<string>::iterator it=options.begin(); it!=options.end();){
+		string ans = calculateBullAndPgia(*it, choice);
+		if(!status.compare(ans)){
+			cout<<"hello\n";
+			it = options.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+		
+	}
+	
+	// cout <<"newSetttttt"<<endl;
+	// for (set<string>::iterator it=options.begin(); it!=options.end(); ++it){
+	// 	cout << ' ' << *it;
+	// 	cout<<"\n";
+	// }
+	
+}
+
 
 
 
