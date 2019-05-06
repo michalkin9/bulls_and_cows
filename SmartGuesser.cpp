@@ -41,9 +41,15 @@ void SmartGuesser::buildset(int length){
 	string num;
 	int MAX_NUM;
 	int curr_length;
+	
+	if(!option.empty()){
+		option.clear();
+	}
+
 	for(int i = 0; i < length; i++){
 		num += "9";
 	}
+	
 	MAX_NUM = std::stoi(num);	
 	
 	for(int i=0; i <= MAX_NUM; i++){
