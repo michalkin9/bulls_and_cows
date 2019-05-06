@@ -7,7 +7,6 @@ using namespace std;
 using namespace bullpgia;
 
 string SmartGuesser::guess(){
-//_guess = options.front();
  list<string>::iterator it=options.begin();
 int randomIndex = rand()%options.size(); //calculate random index
 advance(it,randomIndex); //taking random number from all the options
