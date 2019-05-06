@@ -10,11 +10,9 @@ string bullpgia::calculateBullAndPgia(string chooser, string guesser) {
     string ans;
     int size = chooser.size();
     int arr[size];
-    if(size != guesser.size()){
-        throw "The guess's length is not equal to the choice's length";
-    }
+
     for(int i=0; i<size; i++){
-        if(chooser.at(i) == guesser.at(i)){
+        if(chooser[i] == guesser[i]){
             bull++;
             arr[i] = -1;
            // cout << guesser.at(i) <<endl;
