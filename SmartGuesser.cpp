@@ -42,8 +42,8 @@ void SmartGuesser::buildset(int length){
 	int MAX_NUM;
 	int curr_length;
 	
-	if(!option.empty()){
-		option.clear();
+	if(!options.empty()){
+		options.clear();
 	}
 
 	for(int i = 0; i < length; i++){
