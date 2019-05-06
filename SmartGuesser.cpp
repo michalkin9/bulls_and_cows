@@ -17,10 +17,10 @@ return _guess;
 }
 
 void SmartGuesser::learn(string calculateStatus) {
-cout << "Before delete: " << endl;
-for (list<string>::iterator it=options.begin(); it!=options.end();++it){
-		cout << ' ' << *it <<endl;
-	}
+//cout << "Before delete: " << endl;
+// for (list<string>::iterator it=options.begin(); it!=options.end();++it){
+// 		cout << ' ' << *it <<endl;
+// 	}
 
 		for (list<string>::iterator it=options.begin(); it!=options.end();){
 		string ans = calculateBullAndPgia(*it,_guess);
@@ -34,10 +34,10 @@ for (list<string>::iterator it=options.begin(); it!=options.end();++it){
 		
 	}
 
-	cout << "After delete: " << endl;
-	for (list<string>::iterator it=options.begin(); it!=options.end();++it){
-		cout << ' ' << *it <<endl;
-	}
+// 	cout << "After delete: " << endl;
+// 	for (list<string>::iterator it=options.begin(); it!=options.end();++it){
+// 		cout << ' ' << *it <<endl;
+// 	}
 }
 void SmartGuesser::startNewGame(uint length){
 	//starting a new game with the length, builidng a set of options
