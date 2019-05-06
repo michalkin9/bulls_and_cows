@@ -6,28 +6,35 @@ using namespace std;
 using namespace bullpgia;
 
 string SmartGuesser::guess(){
-		string str;
-		#int currGuess = random(length);
-		#learn(calculateBullandPgia(currGuess), currGuess);
-		#check if there are 4 bulls - if so - win and return.
-		#else call learn.
-		return str;
+			
 
+
+return _guess;
+}
+
+void SmartGuesser::learn(string calculateStatus) {
+
+		for (set<string>::iterator it=options.begin(); it!=options.end();){
+		string ans = calculateBullAndPgia(*it, _guess);
+		if(!calculateStatus.compare(ans)){
+			cout<<"hello\n";
+			it = options.erase(it);
 		}
-void SmartGuesser::learn (string st) {
-	#need to call remove from here
-	#if 1 left - win
-	
+		else
+		{
+			++it;
+		}
+		
+	}
 }
 void SmartGuesser::startNewGame(uint length){
+	//starting a new game with the length, builidng a set of options
 	this->length = length;
 	buildset(length);
 }
 
-int SmartGuesser::random(int length){
-	// rand between 0000 to length
-}
 void SmartGuesser::buildset(int length){
+	//building set with all the guess options
 	string num;
 	int MAX_NUM;
 	int curr_length;
@@ -42,34 +49,31 @@ void SmartGuesser::buildset(int length){
 		ss  << setw(length) << setfill('0') << curr;
 		options.insert(ss.str());
 	}
-	for (set<string>::iterator it=options.begin(); it!=options.end(); ++it){
-		cout << ' ' << *it;
-		cout<<"\n";
-	}
-}
-
-void SmartGuesser::remove_from_set(string status, string choice){
-	
-	for (set<string>::iterator it=options.begin(); it!=options.end();){
-		string ans = calculateBullAndPgia(*it, choice);
-		if(!status.compare(ans)){
-			cout<<"hello\n";
-			it = options.erase(it);
-		}
-		else
-		{
-			++it;
-		}
-		
-	}
-	
-	// cout <<"newSetttttt"<<endl;
 	// for (set<string>::iterator it=options.begin(); it!=options.end(); ++it){
 	// 	cout << ' ' << *it;
 	// 	cout<<"\n";
 	// }
-	
 }
+
+
+
+// void SmartGuesser::remove_from_set(string calculateStatus, string choice){
+	
+// 		for (set<string>::iterator it=options.begin(); it!=options.end();){
+// 		string ans = calculateBullAndPgia(*it, choice);
+// 		if(!calculateStatus.compare(ans)){
+// 			cout<<"hello\n";
+// 			it = options.erase(it);
+// 		}
+// 		else
+// 		{
+// 			++it;
+// 		}
+		
+// 	}
+// }
+
+
 
 
 
