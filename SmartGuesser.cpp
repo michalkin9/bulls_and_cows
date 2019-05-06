@@ -24,7 +24,7 @@ void SmartGuesser::learn(string calculateStatus) {
 
 		for (list<string>::iterator it=options.begin(); it!=options.end();){
 		string ans = calculateBullAndPgia(*it,_guess);
-		if(!calculateStatus.compare(ans)){
+		if(calculateStatus!=ans){
 			it = options.erase(it);
 		}
 		else
