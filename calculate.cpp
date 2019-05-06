@@ -7,7 +7,7 @@ using namespace std;
 
 string bullpgia::calculateBullAndPgia(string chooser, string guesser) {
     int bull = 0, pgia = 0;
-    string ans;
+    string ans="";
     int size = chooser.size();
     int arr[size];
 

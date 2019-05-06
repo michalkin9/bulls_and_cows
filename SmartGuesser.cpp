@@ -7,8 +7,8 @@ using namespace std;
 using namespace bullpgia;
 
 string SmartGuesser::guess(){
-
-set<string>::iterator it=options.begin();
+//_guess = options.front();
+ list<string>::iterator it=options.begin();
 int randomIndex = rand()%options.size(); //calculate random index
 advance(it,randomIndex); //taking random number from all the options
 _guess = *it; 
@@ -17,17 +17,26 @@ return _guess;
 }
 
 void SmartGuesser::learn(string calculateStatus) {
+cout << "Before delete: " << endl;
+for (list<string>::iterator it=options.begin(); it!=options.end();++it){
+		cout << ' ' << *it <<endl;
+	}
 
-		for (set<string>::iterator it=options.begin(); it!=options.end();){
-		string ans = calculateBullAndPgia(*it, _guess);
+		for (list<string>::iterator it=options.begin(); it!=options.end();){
+		string ans = calculateBullAndPgia(*it,_guess);
 		if(!calculateStatus.compare(ans)){
 			it = options.erase(it);
 		}
 		else
 		{
-			++it;
+			it++;
 		}
 		
+	}
+
+	cout << "After delete: " << endl;
+	for (list<string>::iterator it=options.begin(); it!=options.end();++it){
+		cout << ' ' << *it <<endl;
 	}
 }
 void SmartGuesser::startNewGame(uint length){
@@ -36,11 +45,10 @@ void SmartGuesser::startNewGame(uint length){
 	buildset(length);
 }
 
-void SmartGuesser::buildset(int length){
+void SmartGuesser::buildset(uint length){
 	//building set with all the guess options
 	string num;
 	int MAX_NUM;
-	int curr_length;
 	
 	if(!options.empty()){
 		options.clear();
@@ -56,37 +64,8 @@ void SmartGuesser::buildset(int length){
 		string curr = to_string(i);
 		ostringstream ss;
 		ss  << setw(length) << setfill('0') << curr;
-		options.insert(ss.str());
+		string s = ss.str();
+		options.push_back(s);
 	}
-	// for (set<string>::iterator it=options.begin(); it!=options.end(); ++it){
-	// 	cout << ' ' << *it;
-	// 	cout<<"\n";
-	// }
-}
-
-
-
-// void SmartGuesser::remove_from_set(string calculateStatus, string choice){
 	
-// 		for (set<string>::iterator it=options.begin(); it!=options.end();){
-// 		string ans = calculateBullAndPgia(*it, choice);
-// 		if(!calculateStatus.compare(ans)){
-// 			cout<<"hello\n";
-// 			it = options.erase(it);
-// 		}
-// 		else
-// 		{
-// 			++it;
-// 		}
-		
-// 	}
-// }
-
-
-
-
-
-
-
-
-
+}

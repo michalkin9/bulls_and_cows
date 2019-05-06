@@ -1,9 +1,8 @@
 #pragma once
 #include "Guesser.hpp"
-#include "Chooser.hpp"
 #include "calculate.hpp"
 #include <string>
-#include <set>
+#include <list>
 #include <iterator>
 
 using namespace std;
@@ -14,10 +13,9 @@ class SmartGuesser: public bullpgia::Guesser {
 	public:
 		string guess() override;
 		string _guess;
-		set<string> options = {};
-		void buildset(int length);
+		list<string> options;
+		void buildset(uint length);
 		void learn (string st) override;
 		void startNewGame(uint length) override;
-		void remove_from_set(string status, string choice);
 };
 }
