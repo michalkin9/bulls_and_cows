@@ -1,15 +1,19 @@
 #include "SmartGuesser.hpp"
 #include <stdlib.h>
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
 using namespace bullpgia;
 
 string SmartGuesser::guess(){
-			
 
-
+set<string>::iterator it=options.begin();
+int randomIndex = rand()%options.size(); //calculate random index
+advance(it,randomIndex); //taking random number from all the options
+_guess = *it; 
 return _guess;
+
 }
 
 void SmartGuesser::learn(string calculateStatus) {
