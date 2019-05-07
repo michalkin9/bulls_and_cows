@@ -5,6 +5,13 @@
 
 using namespace std;
 
+/*
+* This function gets 2 strings and check how many bulls and cows were.
+* @param chooser - the string that we need to guess
+* @param guesser - the string that we try to guess with.
+* @return - string in the format: "bull,cow".
+*
+*/
 string bullpgia::calculateBullAndPgia(string chooser, string guesser) {
     int bull = 0, pgia = 0;
     string ans="";
