@@ -53,14 +53,6 @@ int main() {
 		.CHECK_EQUAL(play(c1234,g123456, 4, 100), 101)	 // chooser loses technically by choosing an illegal number (too long).
 		;
 		
-		testcase.setname("checks length")
-		.CHECK_THROWS(calculateBullAndPgia("123","2345"))
-		.CHECK_THROWS(calculateBullAndPgia("111111","2345"))
-		.CHECK_THROWS(calculateBullAndPgia("01","2343"))
-		.CHECK_THROWS(calculateBullAndPgia("","2343"))
-		.CHECK_THROWS(calculateBullAndPgia("",""))
-		.CHECK_THROWS(calculateBullAndPgia("adi","michal"))
-		;
 
 		testcase.setname("Play with smart guesser");
 		RandomChooser randy;
