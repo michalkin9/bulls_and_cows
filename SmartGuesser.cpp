@@ -6,6 +6,10 @@
 using namespace std;
 using namespace bullpgia;
 
+/*
+*The function guess chooses a random guess from the list of options
+*@return _guess - the random guess 
+*/
 string SmartGuesser::guess(){
  list<string>::iterator it=options.begin();
 int randomIndex = rand()%options.size(); //calculate random index
@@ -15,11 +19,12 @@ return _guess;
 
 }
 
+/*
+*The function learn iterate through the list of options and erase options that dont get the same result from "calculateBullAndPgia()"
+*@param calculateStatus - the status of the current guess and the secret choice 
+*/
 void SmartGuesser::learn(string calculateStatus) {
-//cout << "Before delete: " << endl;
-// for (list<string>::iterator it=options.begin(); it!=options.end();++it){
-// 		cout << ' ' << *it <<endl;
-// 	}
+
 
 		for (list<string>::iterator it=options.begin(); it!=options.end();){
 		string ans = calculateBullAndPgia(*it,_guess);
@@ -33,17 +38,21 @@ void SmartGuesser::learn(string calculateStatus) {
 		
 	}
 
-// 	cout << "After delete: " << endl;
-// 	for (list<string>::iterator it=options.begin(); it!=options.end();++it){
-// 		cout << ' ' << *it <<endl;
-// 	}
 }
+
+/*
+*The function startNewGame - starts a new game by building a list with all the guess options
+*/
 void SmartGuesser::startNewGame(uint length){
 	//starting a new game with the length, builidng a set of options
 	this->length = length;
 	buildset(length);
 }
 
+/*
+*The function buildset - builids a set when the amount of options depends on the length of the guess
+*@param length - the lentgh of the guess 
+*/
 void SmartGuesser::buildset(uint length){
 	//building set with all the guess options
 	string num;
